@@ -1,0 +1,314 @@
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html{
+    font-optical-sizing: auto;
+    font-family: "Doto", sans-serif;
+    height: 100%;
+    
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+header{
+    flex: 0 0 auto;
+}
+main{
+    flex: 1 0 auto;
+}
+footer{
+    margin-top: 100px;
+    flex: 0 0 auto;
+}
+main .auth_main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content_form{
+    width: 25%;
+    padding: 20px;
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    /* border: 1px solid #cfcfcf;
+    background-color: #f7f7f7; */
+}
+.content_form a{
+    margin-left: auto;
+    margin-right:auto;
+    width: fit-content;
+    
+}
+.content_form a:first-of-type{
+    margin-bottom: 10px;
+}
+/* Друзья */
+.friends{
+    width: 100vh;
+    display: flex;
+}
+    .tuble-friends{
+        width: 100%;
+        max-height: 609px;
+        overflow-y: auto;
+    }
+    .friend{
+        display: flex;
+        align-items: center;
+        background-color: #f9f9f9;
+        max-width:70%;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+     /* Эффект при наведении на ссылку */
+     .friend:hover {
+        background-color: #f0f0f0;
+    }
+  
+    /* Фото друга */
+    .friend-photo {
+        margin-right: 15px;
+    }
+    
+    .friend-photo img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+  
+    /* Имя друга */
+    .friend-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+  
+    /* Недавнее сообщение */
+    .friend-message {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+  
+    /* Блок с уведомлением */
+    .friend-notification {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    /* Число уведомлений */
+    .delete_friend_icon {
+        padding: 5px 10px;
+
+    }
+    
+    /* Время уведомления */
+    .notification-time {
+        font-size: 12px;
+        color: #666;
+    }
+/* Заявки */
+.zayvki{
+    width: 100vh;
+    display: flex;
+    border: 1px solid rgb(0, 60, 255);
+    padding:5px;
+    max-height: 609px;
+    overflow-y: auto;
+}
+.profile{
+    padding: 30px;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+}
+/* Сообщения */
+.messages{
+    width: 100vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}   
+    #user-selection {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .user-item {
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .user-item:hover {
+        border-color: #007bff;
+        background-color: #f0f8ff;
+    }
+
+    .user-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .user-item.selected {
+        border-color: #007bff;
+        background-color: #e0f7ff;
+    }
+
+    #chat-box {
+        display: none;  /* Изначально скрыто */
+    }
+
+
+    .people{
+        padding:5px;
+        max-height: 609px;
+        overflow-y: auto;
+    }
+        .massage-friend {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            width: 100%;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px ;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+      
+        /* Эффект при наведении на ссылку */
+        .massage-friend:hover {
+            background-color: #f0f0f0;
+        }
+      
+        /* Фото друга */
+        .massage-friend-photo {
+            margin-right: 15px;
+        }
+        
+        .massage-friend-photo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Информация о друге */
+        .friend-info {
+            flex-grow: 1;
+        }
+      
+        /* Имя друга */
+        .friend-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+      
+        /* Недавнее сообщение */
+        .contact-friend {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+      
+        /* Блок с уведомлением */
+        .delete_friend {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+      
+        /* Число уведомлений */
+        .notification-count {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Время уведомления */
+        .notification-time {
+            font-size: 12px;
+            color: #666;
+        }
+    .correspondence{
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+        .friend_up_block {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+        .main_messages{
+            height: 460px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            overflow-y:auto;
+
+        }
+        .overflow_massages{
+            max-height: 460px;
+            display: flex;
+            flex-direction: column;
+            overflow-y:auto;
+        }
+            .messages_block_right{
+                display: flex;
+                justify-content: end;
+                margin: 5px;
+            }
+                .messages_post_right{
+                    padding: 10px;
+                    border-radius: 7px;
+                    color:white;
+                    background-color:#4e7dff; 
+                    max-width:300px
+                }
+                .notification-time_left {
+                    font-size: 12px;
+                    color: #666;
+                }
+            .messages_block_left{
+                display: flex;
+                justify-content: start;
+                padding: 5px;
+            }
+                .messages_post_left{
+                    padding: 10px;
+                    border-radius: 7px;
+                    background-color: #cccccc;
+                    max-width:300px
+                }
+                .notification-time_right {
+                    width: 100%;
+                    font-size: 12px;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: end;
+                }
