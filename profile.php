@@ -150,15 +150,15 @@ if(array_key_exists('editProfile',$_POST)){
                         <div class="list-group">
                             <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
                                 Друзья
-                                <span class="badge text-bg-primary rounded-pill">6</span>
+                                <span class="badge text-bg-primary rounded-pill">+</span>
                             </button>
                             <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
                                 Заявки
-                                <span class="badge text-bg-primary rounded-pill">3</span>
+                                <span class="badge text-bg-primary rounded-pill">+</span>
                             </button>
                             <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
                                 Сообщения
-                                <span class="badge text-bg-primary rounded-pill">999</span>
+                                <span class="badge text-bg-primary rounded-pill">+</span>
                             </button>
                         </div>
                         <br>
