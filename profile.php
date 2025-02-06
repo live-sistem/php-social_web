@@ -224,14 +224,14 @@ if(array_key_exists('editProfile',$_POST)){
                                         <div class="main_messages">
                                             <div class="overflow_masssages" id="chatBox">
                                                 
-                                            </div>  
+                                            </div>
                                         </div>
                                         <div>
                                             <form>
                                                 <input type="hidden" id="incoming_id">
                                                 <div class="form_post_messages">
                                                     <div class="textarea_post_message">
-                                                        <textarea id="message" class="" name="message"></textarea>
+                                                        <input id="message" class="textarea" name="message"></input>
                                                     </div>
                                                     <div class="">
                                                         <button class="btn_post_message" id="send-message-btn" type="submit">Отправить</button>

@@ -385,7 +385,7 @@ main .auth_main{
             display: flex;
             align-items: center;
         }
-            .textarea_post_message, textarea{
+            .textarea_post_message, .textarea{
                 border-top-left-radius: 10px;
                 border-bottom-left-radius: 10px;
                 display: flex;

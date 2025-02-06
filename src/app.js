@@ -86,9 +86,11 @@ function loadMessages(recipientId, container){
   };    
   // Отправляем запрос
   xhr.send();
-  container.scrollTop = container.scrollHeight;
-}
 
+  setInterval(() => container.scrollTop = container.scrollHeight, 200);
+
+  
+}
 
 // Обработка запроса на отправку нового сообщения
 document.addEventListener('DOMContentLoaded', function() {
