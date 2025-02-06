@@ -73,13 +73,13 @@ function loadMessages(recipientId, container){
     container_copy = container;
   }
   // Тут загружаем историю сообщений для выбранного пользователя
+  
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'src/get_mess.php?user_id=' + cipientId_copy, true);
   xhr.onload = function() {
     if (xhr.status === 200){
         var messages = xhr.response;
         container_copy.innerHTML = messages;
-        
     } else {
         console.error('Ошибка при загрузке сообщений');
     }
@@ -87,8 +87,7 @@ function loadMessages(recipientId, container){
   // Отправляем запрос
   xhr.send();
 
-  setInterval(() => container.scrollTop = container.scrollHeight, 200);
-
+  // setTimeout(() => {container.scrollTop = container.scrollHeight}, 200);
   
 }
 
@@ -110,14 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
       xhr.onload = function() {
           if (xhr.status === 200) {
-            console.log(incomingId)
             document.getElementById('message').value = '';
           }
       };
       xhr.send('incoming_id=' + encodeURIComponent(incomingId) + '&message=' + encodeURIComponent(message));
       
       loadMessages();
-      
       
   });
 });

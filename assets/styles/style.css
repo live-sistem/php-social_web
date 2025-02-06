@@ -325,6 +325,7 @@ main .auth_main{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-right: 4px;
     }
         .friend_up_block {
             display: flex;
@@ -332,17 +333,18 @@ main .auth_main{
             width: 100%;
         }
         .main_messages{
-            height: 460px;
+            height: 495px;
             display: flex;
             flex-direction: column;
             justify-content: end;
-            margin: 20px;
+            margin-top : 10px;
+            
             background-color: #f1f1f1;
             border:solid #bdbdbd 1px ;
-            border-radius: 4px;
+            border-radius: 4px 4px 0px 0px;
         }
             .overflow_masssages{
-                max-height: 460px;
+                max-height: 495px;;
                 display: flex;
                 overflow-y:scroll;
                 flex-direction: column;
@@ -363,6 +365,7 @@ main .auth_main{
                         font-size: 12px;
                         color: #666;
                     }
+
                 .messages_block_left{
                     display: flex;
                     justify-content: start;
@@ -381,27 +384,26 @@ main .auth_main{
                         display: flex;
                         justify-content: end;
                     }
+                    
         .form_post_messages{
             display: flex;
             align-items: center;
         }
             .textarea_post_message, .textarea{
-                border-top-left-radius: 10px;
                 border-bottom-left-radius: 10px;
                 display: flex;
                 align-items: center;
+                border:solid #bdbdbd 1px ;
                 width: 100%;
-                max-height: 50px;
-                min-height: 50px;
+                height: 40px;
             }
-
             .btn_post_message{
-                padding-left: 5px;
-                padding-right: 5px;
-                border-top-right-radius: 10px;
                 border-bottom-right-radius: 10px;
-                background-color: rgb(58, 201, 58);
-                color:white;
-                height: 50px;
-                border:none;            }
+                height: 40px;
+                background-color: white;
+                border-right:solid #bdbdbd 1px ;   
+                border-top:solid #bdbdbd 1px ; 
+                border-bottom:solid #bdbdbd 1px ; 
+                border-left:none; 
+            }
             
