@@ -39,12 +39,12 @@ function get_list_message_user(){
                         <img src="assets/img/zamer.png" alt="Фото друга">
                     </div>
                     <div class="friend-info">
-                        <div id = "name" class="friend-name">'. $item['name'].'</div>
+                        <div value="'. $item['name'].'"id = "name" class="friend-name">'. $item['name'].'</div>
                         <div class="friend-message"></div>
                     </div>
                     <div class="friend-notification">
-                        <div class="notification-count">defold</div>
-                        <div class="notification-time">defold</div>
+                        <div class="notification-count">333</div>
+                        <div class="notification-time">23:23</div>
                     </div>
                 </a>
             ');
@@ -192,7 +192,7 @@ if(array_key_exists('editProfile',$_POST)){
                                 <h5 class="card-header">Заявки</h5>
                                 <div class="zayvki">
                                     <div class="people1">
-                                    Заявки
+                                        Заявки
                                     </div>
                                 </div>
                                 
@@ -216,24 +216,28 @@ if(array_key_exists('editProfile',$_POST)){
                                                 <div class="friend-name"><span id="selected-user-name"></span></div>
                                             </div>
                                             <div class="friend-notification">
-                                                ...
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                                                </svg>
                                             </div>
                                         </div>
                                         <div class="main_messages">
-                                            <div class="overflow_massages" id="chatBox">
+                                            <div class="overflow_masssages" id="chatBox">
                                                 
                                             </div>  
                                         </div>
-                                        <div class="input_post_messages">
-                                            <div class="bg-body-tertiary">
-                                                <div class="container-fluid">
-                                                    <form class="d-flex" >
-                                                        <input type="hidden" id="incoming_id">
-                                                        <textarea id="message" class="form-control me-2" name="message"></textarea>
-                                                        <button id="send-message-btn"class="btn btn-outline-success" type="submit">Отправить</button>
-                                                    </form>
+                                        <div>
+                                            <form>
+                                                <input type="hidden" id="incoming_id">
+                                                <div class="form_post_messages">
+                                                    <div class="textarea_post_message">
+                                                        <textarea id="message" class="" name="message"></textarea>
+                                                    </div>
+                                                    <div class="">
+                                                        <button class="btn_post_message" id="send-message-btn" type="submit">Отправить</button>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>                    

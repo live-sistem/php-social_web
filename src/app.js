@@ -5,6 +5,7 @@
 // Сообщения
 const buttons = document.querySelectorAll('.btn_colec');
 const blocks = document.querySelectorAll('#blok_1, #blok_2, #blok_3, #blok_4');
+
 let messageInterval;
 buttons.forEach((button, index) => {
   button.addEventListener('click', () => {
@@ -16,6 +17,9 @@ buttons.forEach((button, index) => {
     blocks[index].classList.add('show');
   });
 });
+
+
+
 
 // Тут выводим список сообщений
 document.querySelectorAll('.user-item').forEach(function(userItem) {
@@ -30,23 +34,30 @@ document.querySelectorAll('.user-item').forEach(function(userItem) {
             item.classList.remove('selected');
         });
         this.classList.add('selected');
+
         if (recipientId) {
             // Показываем второй блок
             document.getElementById('chat-box').style.display = 'block';
-            document.getElementById('selected-user-name').textContent = selectedUserName;
-            document.getElementById('incoming_id').value = recipientId;
-            // const scrollBlock = document.querySelector('.overflow_massages');
-            // scrollBlock.scrollTop = scrollBlock.scrollTop
 
-            function startMessageUpdate(recipientId, container) {
-              if (messageInterval){
-                clearInterval(messageInterval)
-              }
-              messageInterval = setInterval(function() {
-                loadMessages(recipientId, container);  // Загружаем новые сообщения
-              }, 1000);
-            }
-            startMessageUpdate(recipientId, container);
+            document.getElementById('selected-user-name').textContent = selectedUserName;
+
+            document.getElementById('incoming_id').value = recipientId;
+
+            loadMessages(recipientId, container);
+
+            // function startMessageUpdate(recipientId, container) {
+
+            //   if (messageInterval){
+            //     clearInterval(messageInterval)
+            //   }
+            //   messageInterval = setInterval(function() {
+            //     loadMessages(recipientId, container);  // Загружаем новые сообщения
+            //   }, 500);
+
+            //   container.scrollTop = container.scrollHeight; // не работате 
+            
+            // }
+            // startMessageUpdate(recipientId, container);
             
         } else {
             // Если пользователь не выбран, скрываем второй блок
@@ -55,16 +66,19 @@ document.querySelectorAll('.user-item').forEach(function(userItem) {
     });
 });
 
-
 function loadMessages(recipientId, container){
+  if (recipientId, container !== undefined) {
+    // Сохраняем переданные данные
+    cipientId_copy = recipientId;
+    container_copy = container;
+  }
   // Тут загружаем историю сообщений для выбранного пользователя
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'src/get_mess.php?user_id=' + recipientId, true);
+  xhr.open('GET', 'src/get_mess.php?user_id=' + cipientId_copy, true);
   xhr.onload = function() {
     if (xhr.status === 200){
         var messages = xhr.response;
-
-        container.innerHTML = messages;
+        container_copy.innerHTML = messages;
         
     } else {
         console.error('Ошибка при загрузке сообщений');
@@ -72,10 +86,16 @@ function loadMessages(recipientId, container){
   };    
   // Отправляем запрос
   xhr.send();
+  container.scrollTop = container.scrollHeight;
 }
 
+
+// Обработка запроса на отправку нового сообщения
 document.addEventListener('DOMContentLoaded', function() {
+  var container = document.getElementById('chatBox');
+
   const sendMessageButton = document.getElementById('send-message-btn');
+  
   sendMessageButton.addEventListener('click', function(event) {
       event.preventDefault();
 
@@ -92,8 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('message').value = '';
           }
       };
-
       xhr.send('incoming_id=' + encodeURIComponent(incomingId) + '&message=' + encodeURIComponent(message));
+      
+      loadMessages();
+      
+      
   });
 });
 
