@@ -17,14 +17,16 @@ $result_messages = mysqli_query($connect, $sql_messages);
     if (mysqli_num_rows($result_messages)>0){
         while ($row = mysqli_fetch_assoc($result_messages)) {
             if ($row['outgoing_msg_id'] === $outgoing_id) {
-                $output .= '<div class="messages_block_right">
+                $output .= 
+                '<div class="messages_block_right">
                     <div class="messages_post_right">
                         '. $row['msg'] .'
                     </div>
                 </div>';
             }
             else {
-                $output .= '<div class="messages_block_left">
+                $output .= 
+                '<div class="messages_block_left">
                     <div class="messages_post_left">
                         '. $row['msg'] .'
                     </div>

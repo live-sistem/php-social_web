@@ -46,31 +46,26 @@ footer{
     margin-top: 100px;
     flex: 0 0 auto;
 }
-main .auth_main{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.content_form{
-    width: 25%;
-    padding: 20px;
-    display: flex;
-    font-size: 20px;
-    border-radius: 10px;
-    flex-direction: column;
-    /* border: 1px solid #cfcfcf;
-    background-color: #f7f7f7; */
-}
-.content_form a{
-    margin-left: auto;
-    margin-right:auto;
-    width: fit-content;
-    
-}
-.content_form a:first-of-type{
-    margin-bottom: 10px;
+/* Баннер профиля */
+@media (max-width: 1290px){
+    .people{
+        margin: 10px;
+        height: 589px;
+        padding: 10px;
+        width: 98px;
+        overflow-y: scroll;
+        border-radius: 4px;
+        border:solid #bdbdbd 1px;
+    } 
+        /* Информация о друге */
+        .friend-info-people {
+            display: none;
+            
+        }
+        .friend-notification{
+            display: none;
+        }
+
 }
 /* Друзья */
 .friends{
@@ -96,52 +91,31 @@ main .auth_main{
      .friend:hover {
         background-color: #f0f0f0;
     }
-  
     /* Фото друга */
-    .friend-photo {
-        margin-right: 15px;
-    }
     
-    .friend-photo img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-  
     /* Имя друга */
-    .friend-name {
-        font-size: 16px;
+    .friend-name-people {
+        font-size: 14px;
         font-weight: bold;
         margin-bottom: 5px;
         color: #333;
     }
   
     /* Недавнее сообщение */
-    .friend-message {
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.6);
-    }
+    
   
-    /* Блок кебаб */
-    .friend-notification {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-    }
-  
-    /* Число уведомлений */
     .delete_friend_icon {
         padding: 5px 10px;
 
     }
-    
-    /* Время уведомления */
-    .notification-time {
-        font-size: 12px;
-        color: #666;
+
+    .delete_friend {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+    
+    
 /* Заявки */
 .zayvki{
     width: 100vh;
@@ -179,24 +153,13 @@ main .auth_main{
         border-color: #007bff;
         background-color: #f0f8ff;
     }
-
-    .user-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 10px;
-    }
-
     .user-item.selected {
         border-color: #007bff;
         background-color: #e0f7ff;
     }
-    #chat-box {
+    #chat-box{
         display: none;  /* Изначально скрыто */
     }
-
-
     .people{
         margin: 10px;
         height: 589px;
@@ -206,11 +169,12 @@ main .auth_main{
         border-radius: 4px;
         border:solid #bdbdbd 1px;
     }
-        .massage-friend {
+        .friend-people {
             display: flex;
             align-items: center;
             text-decoration: none;
             width: 100%;
+            justify-content: space-between;
             background-color: #f3f3f3;
             padding: 10px;
             margin-top: 5px;
@@ -220,16 +184,16 @@ main .auth_main{
         }
       
         /* Эффект при наведении на ссылку */
-        .massage-friend:hover {
+        .friend-people:hover {
             background-color: #bebdbd;
         }
       
-        /* Фото друга */
-        .massage-friend-photo {
-            margin-right: 15px;
+        /* Фото друга в выборе переписке  */
+        .friend-photo-people {
+            margin-right: 5px;
         }
         
-        .massage-friend-photo img {
+        .friend-photo-people img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -237,15 +201,17 @@ main .auth_main{
         }
         
         /* Информация о друге */
-        .friend-info {
-            flex-grow: 1;
+        .friend-info-people {
+            
         }
-      
+            .friend-message-people {
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.6);
+            }
         /* Имя друга */
         .friend-name {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            margin-bottom: 5px;
             color: #333;
         }
       
@@ -255,12 +221,7 @@ main .auth_main{
             color: rgba(0, 0, 0, 0.6);
         }
       
-        /* Блок с уведомлением */
-        .delete_friend {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        
       
         /* Число уведомлений */
         .notification-count {
@@ -279,48 +240,29 @@ main .auth_main{
             color: #666;
         }
 
-    @media (max-width: 1408px), (max-height:670px) {
+    @media (max-width: 1548px){
         .people{
             margin: 10px;
             height: 589px;
             padding: 10px;
-            width: 100px;
+            width: 98px;
             overflow-y: scroll;
             border-radius: 4px;
             border:solid #bdbdbd 1px;
-        }
-            .massage-friend {
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                background-color: #f9f9f9;
-                padding: 10px;
-                margin-top: 5px;
-                margin-bottom: 5px ;
-                border-radius: 10px;
-                transition: background-color 0.3s ease;
-            }
-        
-            /* Фото друга */
-            /* .massage-friend-photo {
-                
-            } */
-            
+        } 
             /* Информация о друге */
-            .friend-info {
+            .friend-info-people {
                 display: none;
+                
             }
             .friend-notification{
                 display: none;
             }
-            /* Недавнее сообщение */
-            /* .contact-friend {
-                display: none; */
 
     }
     /* Блок переписки и отправки письма. */
     .correspondence{
-        width: 70%;
+        flex-grow: 1;
         padding: 5px;
         display: flex;
         flex-direction: column;
@@ -330,7 +272,30 @@ main .auth_main{
         .friend_up_block {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             width: 100%;
+        }
+        .friend-photo-chat {
+            margin-right: 15px;
+        }
+            .friend-photo-chat img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        .friend-info-chat{
+            
+        }
+            .friend-name-chat{
+                font-size: 17px;
+                font-weight: bold;
+            }
+        .friend-action-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
         }
         .main_messages{
             height: 495px;
@@ -344,10 +309,11 @@ main .auth_main{
             border-radius: 4px 4px 0px 0px;
         }
             .overflow_masssages{
-                max-height: 495px;;
-                display: flex;
+                max-height: 495px;;           
                 overflow-y:scroll;
                 flex-direction: column;
+                scroll-behavior: smooth;
+                display: none;
             }
                 .messages_block_right{
                     display: flex;
@@ -389,7 +355,7 @@ main .auth_main{
             display: flex;
             align-items: center;
         }
-            .textarea_post_message, .textarea{
+            .input_post_message, input{
                 border-bottom-left-radius: 10px;
                 display: flex;
                 align-items: center;

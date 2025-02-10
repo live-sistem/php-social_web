@@ -7,13 +7,17 @@ require_once __DIR__ . '/helpers.php';
 
 $login = $_POST['login'];
 $password = $_POST['password'];
+$username = $_POST['username'];
+$surname = $_POST['surname'];
+
+$output = "";
 
 // Запись данных в базу данных
 
 $connect = getDB();
-$sql = "INSERT INTO `users` (login, password) VALUES ('$login', '$password')";
+$sql = "INSERT INTO `users` (login, password, name, surname) VALUES ('$login', '$password', '$username', '$surname')";
 if ($connect -> query($sql) === TRUE){
-    header("Location: /index.html");
+    header("Location: /login.html");
 }else{
-    echo "Данный пользователь уже существует";
-}
+    echo( "EROOR");
+};

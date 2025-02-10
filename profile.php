@@ -23,32 +23,34 @@ foreach ($result_user as $item){
     $unique_id = $item[5];
 }
 
-// вызывается функция получение всех users в вкладке сообщения. 
+// Вызывается функция получение всех users в вкладке сообщения. 
 function get_list_message_user(){
     $idUser = $_SESSION['user']['id'];
-                  
+
     $sql_friend = "SELECT * FROM `users` WHERE NOT `id` = ('$idUser')";
 
     $result_friend = mysqli_query(getDB(), $sql_friend );
     
     if (!$result_friend == ''){
+
         foreach ($result_friend as $item){
             echo('
-                <a class="massage-friend user-item" data-user-id="'.$item['id'].'">
-                    <div class="massage-friend-photo">
+                <a class="friend-people user-item" data-user-id="'.$item['id'].'" data-user-name="' . $item['name'] . ' ' . $item['surname'] . '">
+                    <div class="friend-photo-people">
                         <img src="assets/img/zamer.png" alt="Фото друга">
                     </div>
-                    <div class="friend-info">
-                        <div value="'. $item['name'].'"id = "name" class="friend-name">'. $item['name'].'</div>
-                        <div class="friend-message"></div>
+                    <div class="friend-info-people">
+                        <div class="friend-name-people" id="name">' . $item['name'] . ' ' . $item['surname'] . '</div>
+                        <div class="friend-message-people">?</div>
                     </div>
                     <div class="friend-notification">
-                        <div class="notification-count">333</div>
-                        <div class="notification-time">23:23</div>
+                        <div class="notification-count">???</div>
+                        <div class="notification-time">??:??</div>
                     </div>
                 </a>
             ');
         }
+
     }
     else{
         echo('EROR');
@@ -143,32 +145,30 @@ if(array_key_exists('editProfile',$_POST)){
         <div class="container d-flex justify-content-center">
             <div class="d-flex">
                 <!-- Баннер профиля  --> 
-                <div class="m-3">
+                <div class="m-3 pesone_profile">
                     <div class="card" style="width: 18rem;">
                         <img src="/assets/img/profile.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                        <div class="list-group">
-                            <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-                                Друзья
-                                <span class="badge text-bg-primary rounded-pill">+</span>
-                            </button>
-                            <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-                                Заявки
-                                <span class="badge text-bg-primary rounded-pill">+</span>
-                            </button>
-                            <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
-                                Сообщения
-                                <span class="badge text-bg-primary rounded-pill">+</span>
-                            </button>
-                        </div>
-                        <br>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">id: <?= $idUser?></li>
-                            <li class="list-group-item">login: <?= $login?></li>
-                            <li class="list-group-item">unique_id: <?=$unique_id?></li>
-                        </ul>
-                        <br>
-                        <button type="button" class="btn_colec btn btn-primary">Редактировать</button>
+                            <div class="list-group">
+                                <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    Друзья
+                                    <span class="badge text-bg-primary rounded-pill">+</span>
+                                </button>
+                                <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    Заявки
+                                    <span class="badge text-bg-primary rounded-pill">+</span>
+                                </button>
+                                <button type="button" class="btn_colec fw-bold list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+                                    Сообщения
+                                    <span class="badge text-bg-primary rounded-pill">+</span>
+                                </button>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">id: <?= $idUser?></li>
+                                <li class="list-group-item">login: <?= $login?></li>
+                                <li class="list-group-item">Имя: <?=$name?></li>
+                            </ul>
+                            <button type="button" class="btn_colec btn btn-primary">Редактировать</button>
                         </div>
                     </div>
                 </div>
@@ -209,14 +209,14 @@ if(array_key_exists('editProfile',$_POST)){
                                     </div>
                                     <div id="chat-box" class="correspondence" style="display:none;" >
                                         <div class="friend_up_block">
-                                            <div class="massage-friend-photo">
+                                            <div class="friend-photo-chat">
                                                 <img src="assets/img/zamer.png" alt="Фото друга">
                                             </div>
-                                            <div class="friend-info">
-                                                <div class="friend-name"><span id="selected-user-name"></span></div>
+                                            <div class="friend-info-chat">
+                                                <div class="friend-name-chat"><span id="selected-user-name"></span></div>
                                             </div>
-                                            <div class="friend-notification">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                            <div class="friend-action-menu">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                                                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
                                                 </svg>
                                             </div>
@@ -230,10 +230,10 @@ if(array_key_exists('editProfile',$_POST)){
                                             <form>
                                                 <input type="hidden" id="incoming_id">
                                                 <div class="form_post_messages">
-                                                    <div class="textarea_post_message">
-                                                        <input id="message" class="textarea" name="message"></input>
+                                                    <div class="input_post_message">
+                                                        <input id="message" name="message"></input>
                                                     </div>
-                                                    <div >
+                                                    <div>
                                                         <button class="btn_post_message" id="send-message-btn" type="submit">
                                                             <svg width="70" height="32" viewBox="0 0 465 427" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M454.82 214.612C454.82 214.612 455.013 214.706 454.772 214.594C447.008 214.594 333.293 214.584 234.304 214.576C239.725 182.242 241.995 149.455 238.487 114.091C343.939 162.934 447.89 211.386 454.772 214.594C455.158 214.647 454.969 214.552 454.82 214.612Z" fill="#0270D1"/>
@@ -319,10 +319,8 @@ if(array_key_exists('editProfile',$_POST)){
         </div>
     </footer>
     <script src="src/app.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
-    <script>
-        
-    </script> -->
+    
 </body>
 </html>
