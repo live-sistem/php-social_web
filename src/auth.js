@@ -16,7 +16,7 @@ document.getElementById("registration").addEventListener("submit", function(even
       // Получаем ответ от сервера
         const response = JSON.parse(xhr.responseText);
         if (response.success) {
-            console.log('Данные успешно отправлены!');
+            window.location.href = 'login.html'; 
         } else {
             console.log('Ошибка: ' + response.message);
       }

@@ -17,10 +17,11 @@ if(isset($_POST['login'])){
 
     $sql = "INSERT INTO `users` (login, password, name, surname) VALUES ('$login', '$password', '$username', '$surname')";
     if ($connect -> query($sql) === TRUE){
-        echo("ok");
-    }else{
-        echo("error");
-    };
+        echo json_encode(['success' => true]);
+    } else {
+        // Если данные невалидны
+        echo json_encode(['success' => false, 'message' => 'Заполните все поля!']);
+    }
 
 }else{
     echo '1 ошибка и ты ошибся ';
