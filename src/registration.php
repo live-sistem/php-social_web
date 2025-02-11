@@ -5,6 +5,7 @@ require_once __DIR__ . '/helpers.php';
 
 // получение данный из формы
 if(isset($_POST['login'])){
+    
     $login = $_POST['login'];
     $password = $_POST['password'];
     $username = $_POST['username'];

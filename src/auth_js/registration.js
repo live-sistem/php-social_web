@@ -1,4 +1,5 @@
 // Ну тип регистрация
+
 document.getElementById("registration").addEventListener("submit", function(event) {
     event.preventDefault();
     const login = document.getElementById("exampleInputEmail").value;
@@ -10,10 +11,8 @@ document.getElementById("registration").addEventListener("submit", function(even
     xhr.open("POST", "src/registration.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
-      // Обработчик события для завершения запроса
     xhr.onload = function() {
      if (xhr.status === 200) {
-      // Получаем ответ от сервера
         const response = JSON.parse(xhr.responseText);
         if (response.success) {
             window.location.href = 'login.html'; 
@@ -24,7 +23,6 @@ document.getElementById("registration").addEventListener("submit", function(even
         console.log('Ошибка при отправке данных');
     }
   };
-    // Формируем строку данных для отправки
     const data = `login=${encodeURIComponent(login)}&password=${encodeURIComponent(password)}&username=${encodeURIComponent(username)}&surname=${encodeURIComponent(surname)}`;
-    xhr.send(data); // Отправляем данные на сервер
+    xhr.send(data);
   });

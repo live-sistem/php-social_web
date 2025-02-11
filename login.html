@@ -13,14 +13,14 @@
         <div class="auth_main">
             <div class="content_form">
                 <h1>Вход</h1>
-                <form action="src/login.php" method="post">
+                <form id="login">
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"> Логин</label>
-                      <input required type="login" name="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="exampleInputEmail" class="form-label"> Логин</label>
+                      <input required type="login" name="login" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                      <input required type="password" name="password" class="form-control" id="exampleInputPassword1">
+                      <label for="exampleInputPassword" class="form-label">Пароль</label>
+                      <input required type="password" name="password" class="form-control" id="exampleInputPassword">
                     </div>
                     <button type="submit" class="btn btn-primary"> Войти</button>
                 </form>
@@ -28,6 +28,7 @@
         </div>
     </main>
     <footer></footer>
-    <script src="src/auth.js"></script>
+
+    <script src="src/auth_js/login.js"></script>
 </body>
 </html>
