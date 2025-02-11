@@ -13,23 +13,23 @@
         <div class="auth_main">
             <div class="content_form">
                 <h1>Регистрация</h1>
-                <form action="src/registration.php" method="post" >
+                <form id="registration" >
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Login</label>
-                        <input required="login" name="login" class="form-control is-invalid" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="exampleInputEmail1" class="form-label">Логин</label>
+                        <input required="login" type="login" name="login" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input required type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                        <input required="password" type="password" name="password" class="form-control" id="exampleInputPassword">
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="exampleInputUsername" class="form-label">First name</label>
-                            <input required type="text" name="username" class="form-control" aria-label="First name">
+                            <label for="exampleInputUsername" class="form-label">Имя</label>
+                            <input required type="text" name="username" class="form-control" id="exampleInputName" aria-label="First name">
                         </div>
                         <div class="col">
-                            <label for="exampleInputSurname" class="form-label">Last name</label>
-                            <input required type="text" name="surname" class="form-control" aria-label="Last name">
+                            <label for="exampleInputSurname" class="form-label">Фамилия </label>
+                            <input required type="text" name="surname" class="form-control" id="exampleInputSurname" aria-label="Last name">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
@@ -38,6 +38,7 @@
         </div>
     </main>
     <footer></footer>
-    <script src="src/app.js"></script>
+   
+    <script src="src/auth.js"></script>
 </body>
 </html>

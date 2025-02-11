@@ -4,20 +4,26 @@
 require_once __DIR__ . '/helpers.php';
 
 // получение данный из формы
+if(isset($_POST['login'])){
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $username = $_POST['username'];
+    $surname = $_POST['surname'];
+    $output = "";
 
-$login = $_POST['login'];
-$password = $_POST['password'];
-$username = $_POST['username'];
-$surname = $_POST['surname'];
+    // Запись данных в базу данных
 
-$output = "";
+    $connect = getDB();
 
-// Запись данных в базу данных
+    $sql = "INSERT INTO `users` (login, password, name, surname) VALUES ('$login', '$password', '$username', '$surname')";
+    if ($connect -> query($sql) === TRUE){
+        echo("ok");
+    }else{
+        echo("error");
+    };
 
-$connect = getDB();
-$sql = "INSERT INTO `users` (login, password, name, surname) VALUES ('$login', '$password', '$username', '$surname')";
-if ($connect -> query($sql) === TRUE){
-    header("Location: /login.html");
 }else{
-    echo( "EROOR");
-};
+    echo '1 ошибка и ты ошибся ';
+}
+    
+

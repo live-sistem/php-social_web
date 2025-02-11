@@ -19,11 +19,8 @@
 }
 
 
-
 /* scrollbar-width: thin; /* Устанавливает ширину полосы прокрутки: auto, thin, или none */
 /* scrollbar-color: #888 #f1f1f1; Цвет ползунка и дорожки */ 
-
-
 
 body, html{
     font-optical-sizing: auto;
@@ -48,25 +45,49 @@ footer{
 }
 /* Баннер профиля */
 @media (max-width: 1290px){
-    .people{
-        margin: 10px;
-        height: 589px;
-        padding: 10px;
-        width: 98px;
-        overflow-y: scroll;
-        border-radius: 4px;
-        border:solid #bdbdbd 1px;
-    } 
-        /* Информация о друге */
-        .friend-info-people {
-            display: none;
-            
-        }
-        .friend-notification{
-            display: none;
-        }
+    
 
 }
+main .auth_main{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content_form{
+    width: 450px;
+    display: flex;
+    font-size: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid #cfcfcf;
+    background-color: #f7f7f7;
+    max-height: 450px;
+    padding: 20px;
+}
+    .content_form_welcome{
+        display: flex;
+        justify-content: center;
+    }
+.links_auth_registration{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.link_auth_index{
+    margin: 10px;
+}
+.link_registration_index{
+    margin: 10px;
+}
+
+.content_form a:first-of-type{
+    
+}    
 /* Друзья */
 .friends{
     width: 100vh;
@@ -259,6 +280,13 @@ footer{
                 display: none;
             }
 
+    }
+    @media (max-width: 1280px){
+        /* Информация о друге */
+        .pesone_profile {
+            display: none;
+            
+        }
     }
     /* Блок переписки и отправки письма. */
     .correspondence{
