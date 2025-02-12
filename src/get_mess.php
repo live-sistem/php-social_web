@@ -21,6 +21,7 @@ $result_messages = mysqli_query($connect, $sql_messages);
                 '<div class="messages_block_right">
                     <div class="messages_post_right">
                         '. $row['msg'] .'
+                        <div class="notification_time_righ">'.$row['created_at'].'</div>
                     </div>
                 </div>';
             }
@@ -29,6 +30,7 @@ $result_messages = mysqli_query($connect, $sql_messages);
                 '<div class="messages_block_left">
                     <div class="messages_post_left">
                         '. $row['msg'] .'
+                        <div class="notification_time_left">'.$row['created_at'].'</div>
                     </div>
                 </div>';
                 
