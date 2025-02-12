@@ -3,6 +3,7 @@
 // Друзья
 // Заявки                           
 // Сообщения
+
 const buttons = document.querySelectorAll('.btn_colec');
 const blocks = document.querySelectorAll('#blok_1, #blok_2, #blok_3, #blok_4');
 
@@ -65,7 +66,16 @@ function loadMessages(recipientId, container){
   };    
   xhr.send();
 }
-
+// Иконка прикрепление файла. 
+function updateFileName() {
+  var fileInput = document.getElementById('file-upload');
+  var fileName = document.getElementById('file-name');
+  if (fileInput.files.length > 0) {
+      fileName.textContent = "Выбран файл: " + fileInput.files[0].name;
+  } else {
+      fileName.textContent = "";
+  }
+}
 // Обработка запроса на отправку нового сообщения
 document.addEventListener('DOMContentLoaded', function() {
   var container = document.getElementById('chatBox');

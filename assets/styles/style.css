@@ -377,14 +377,32 @@ main .auth_main{
                         color: #ffffff;
                         display: flex;
                         justify-content: end;
-                    }
-                    
+                    }   
+        .file-input {
+            display: none;
+        }
+
+        .file-label {
+            display: inline-block;
+            cursor: pointer;
+            transition: 1s;
+            margin-left: 5px;
+            margin-right:5px;
+        }
+        .file-label:hover {
+            opacity: 0.8;
+        }  
+        .file-label img{
+            height:35px ;
+            width: 35px;
+
+        }             
         .form_post_messages{
             display: flex;
             align-items: center;
         }
             .input_post_message, input{
-                border-bottom-left-radius: 10px;
+                
                 display: flex;
                 align-items: center;
                 border:solid #bdbdbd 1px ;

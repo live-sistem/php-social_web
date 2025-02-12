@@ -228,9 +228,12 @@ if(array_key_exists('editProfile',$_POST)){
                                         </div>
                                         <div>
                                             <form>
+                                                
                                                 <input type="hidden" id="incoming_id">
                                                 <div class="form_post_messages">
                                                     <div class="input_post_message">
+                                                        <label for="file-upload" class="file-label"><img src="assets/img/free-icon-attach.png" alt=""></label>
+                                                        <input type="file" id="file-upload" class="file-input">
                                                         <input id="message" name="message"></input>
                                                     </div>
                                                     <div>
