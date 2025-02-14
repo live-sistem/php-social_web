@@ -85,40 +85,44 @@ main .auth_main{
 .friends{
     width: 100vh;
     display: flex;
-}
+}   
     .tuble-friends{
         width: 100%;
         max-height: 609px;
         overflow-y: auto;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
     }
     .friend{
+        margin: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: #f3f3f3;
         width:60%;
         padding: 10px;
-        margin-top: 10px;
         border-radius: 10px;
         transition: background-color 0.3s ease;
+        border: 1px solid red;
     }
     .friend-block-photo-and-info{
         display: flex;
-        /* justify-content: space-between; */
         align-items: center;
-    } 
+        
+    }
      /* Эффект при наведении на ссылку */
      .friend:hover {
         background-color: #bebdbd;
     }
-    
     /* Фото друга */
     .friend-photo{
         border: 1px solid rgb(72, 255, 0);
 
     }
     .friend-info{
-        border: 1px solid red;
+        
         margin-left: 10px;
     }
     /* Имя друга */

@@ -77,7 +77,10 @@ function get_users(){
                             <img src="assets/img/zamer.png" alt="Фото друга">
                         </div>
                         <div class="friend-info">
-                            <div class="friend-name">'. $item['name']. ' '. $item['surname'].'</div>
+                            <div class="friend-name">'
+                                . $item['name']. ' '. $item['surname'].'
+                                
+                            </div>
                             <a href="" class="friend_chat_to_link">
                                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M21 2H5C3.897 2 3 2.894 3 3.992V16.008C3 17.106 3.897 18 5 18V21L11 18H21C22.103 18 23 17.106 23 16.008V3.992C22.9984 3.46279 22.7869 2.95583 22.412 2.58237C22.037 2.20891 21.5292 1.99947 21 2Z" fill="#0B5ED7"/>
