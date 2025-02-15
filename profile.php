@@ -205,8 +205,62 @@ if(array_key_exists('editProfile',$_POST)){
                             <div class="card" style="height: 652px;">
                                 <h5 class="card-header">Заявки</h5>
                                 <div class="zayvki">
-                                    <div class="people1">
-                                        Заявки
+                                    <div class="container-applications mt-1">
+                                        <!-- Левый блок (Отправленные заявки) -->
+                                        <div class="left-block">
+                                            <h4>Отправленные заявки</h4>
+                                            <div class="request-item">
+                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                <div class="request-item-friend">
+                                                    <strong>Иван Иванов</strong>
+                                                    <small>Отправлено: 10 февраля</small>
+                                                </div>
+                                            </div>
+                                            <div class="request-item">
+                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                <div class="request-item-friend">
+                                                    <strong>Анна Петрова</strong>
+                                                    <small>Отправлено: 8 февраля</small>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="request-item">
+                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                <div class="request-item-friend">
+                                                    <strong>Алексей Смирнов</strong>
+                                                    <small>Отправлено: 5 февраля</small>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <!-- Правый блок (Поиск и список найденных людей) -->
+                                        <div class="right-block">
+                                            <div class="search-container">
+                                                <h4>Поиск человека</h4>
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="searchInput" class="form-label">Введите имя или ник:</label>
+                                                        <input type="text" class="form-control" id="searchInput" placeholder="Введите имя или ник">
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="search-results">
+                                                <div class="search-item">
+                                                    Иван Иванов
+                                                </div>
+                                                <div class="search-item">
+                                                    Анна Петрова
+                                                </div>
+                                                <div class="search-item">
+                                                    Алексей Смирнов
+                                                </div>
+                                                <div class="search-item">
+                                                    Мария Кузнецова
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
