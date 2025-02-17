@@ -10,6 +10,7 @@ if(isset($_POST['login'])){
     // Запись данных в базу данных
     $connect = getDB();
     $sql = "SELECT * FROM `users` WHERE `login` = ('$login') AND `password` = ('$password')";
+   
 
     $result = $connect->query($sql);
 

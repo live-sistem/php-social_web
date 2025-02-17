@@ -26,13 +26,15 @@ foreach ($result_user as $item){
 // Вызывается функция получение всех users в вкладке сообщения. 
 function get_list_message_user(){
     $idUser = $_SESSION['user']['id'];
-
-    $sql_friend = "SELECT * FROM `users` WHERE NOT `id` = ('$idUser')";
-
+    $sql_friend_test = "SELECT * FROM `friends` WHERE NOT `id` = ('$idUser')";
+    $sql_friend = " SELECT u.id, u.login, u.name, u.surname
+                    FROM users u
+                    JOIN friends f ON (u.id = f.friend_id AND f.user_id = '$idUser')
+                    OR (u.id = f.user_id AND f.friend_id = '$idUser')
+                    WHERE f.status = 'accepted'; 
+                    ";
     $result_friend = mysqli_query(getDB(), $sql_friend );
-    
     if (!$result_friend == ''){
-
         foreach ($result_friend as $item){
             echo('
                 <a class="friend-people user-item" data-user-id="'.$item['id'].'" data-user-name="' . $item['name'] . ' ' . $item['surname'] . '">
@@ -52,22 +54,21 @@ function get_list_message_user(){
                 </a>
             ');
         }
-
     }
     else{
         echo('EROR');
     }
-    // href="profile.php?user_id='. $item['id'] .'"
 }
-
-// вызывается функция получение всех. 
+// вызывается функция получение списка друзей. 
 function get_users(){
     $idUser = $_SESSION['user']['id'];
-                  
-    $sql_friend = "SELECT * FROM `users` WHERE NOT `id` = ('$idUser')";
-
+    $sql_friend = " SELECT u.id, u.login, u.name, u.surname
+                    FROM users u
+                    JOIN friends f ON (u.id = f.friend_id AND f.user_id = '$idUser')
+                    OR (u.id = f.user_id AND f.friend_id = '$idUser')
+                    WHERE f.status = 'accepted'; 
+                    ";
     $result_friend = mysqli_query(getDB(), $sql_friend );
-    
     if (!$result_friend == ''){
         foreach ($result_friend as $item){
             echo('
@@ -79,7 +80,6 @@ function get_users(){
                         <div class="friend-info">
                             <div class="friend-name">'
                                 . $item['name']. ' '. $item['surname'].'
-                                
                             </div>
                             <a href="" class="friend_chat_to_link">
                                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,6 @@ function get_users(){
     else{
         echo('EROR');
     }
-    
 }
 if(array_key_exists('editProfile',$_POST)){
     if ($_POST)
@@ -205,6 +204,7 @@ if(array_key_exists('editProfile',$_POST)){
                             <div class="card" style="height: 652px;">
                                 <h5 class="card-header">Заявки</h5>
                                 <div class="zayvki">
+
                                     <div class="container-applications mt-1">
                                         <!-- Левый блок (Отправленные заявки) -->
                                         <div class="left-block">
@@ -222,7 +222,6 @@ if(array_key_exists('editProfile',$_POST)){
                                                     <strong>Анна Петрова</strong>
                                                     <small>Отправлено: 8 февраля</small>
                                                 </div>
-                                                
                                             </div>
                                             <div class="request-item">
                                                 <img class="request-item-photo" src="assets/img/zamer.png" alt="">
@@ -230,34 +229,22 @@ if(array_key_exists('editProfile',$_POST)){
                                                     <strong>Алексей Смирнов</strong>
                                                     <small>Отправлено: 5 февраля</small>
                                                 </div>
-                                                
                                             </div>
                                         </div>
-
                                         <!-- Правый блок (Поиск и список найденных людей) -->
                                         <div class="right-block">
                                             <div class="search-container">
                                                 <h4>Поиск человека</h4>
-                                                <form>
+                                                <form id="form_search_for_friends">
                                                     <div class="mb-3">
-                                                        <label for="searchInput" class="form-label">Введите имя или ник:</label>
-                                                        <input type="text" class="form-control" id="searchInput" placeholder="Введите имя или ник">
+                                                        <input require type="login" name="login" class="form-control" id="exampleInputEmail" placeholder="Введите ник">
+                                                        <button class="btn btn-primary" type="submit">Поиск</button>
                                                     </div>
                                                 </form>
                                             </div>
+                                            <div class="search-results" id="result-search-item">
+                                                <div class="search-item">
 
-                                            <div class="search-results">
-                                                <div class="search-item">
-                                                    Иван Иванов
-                                                </div>
-                                                <div class="search-item">
-                                                    Анна Петрова
-                                                </div>
-                                                <div class="search-item">
-                                                    Алексей Смирнов
-                                                </div>
-                                                <div class="search-item">
-                                                    Мария Кузнецова
                                                 </div>
                                             </div>
                                         </div>
@@ -296,7 +283,6 @@ if(array_key_exists('editProfile',$_POST)){
                                         </div>
                                         <div>
                                             <form>
-                                                
                                                 <input type="hidden" id="incoming_id">
                                                 <div class="form_post_messages">
                                                     <div class="input_post_message">
@@ -390,8 +376,5 @@ if(array_key_exists('editProfile',$_POST)){
         </div>
     </footer>
     <script src="src/app.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
-    
 </body>
 </html>

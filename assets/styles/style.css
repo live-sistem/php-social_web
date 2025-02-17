@@ -39,6 +39,7 @@ footer{
 }
 /* Баннер профиля */
 @media (max-width: 1290px){
+
     
 }
 main .auth_main{
@@ -160,7 +161,6 @@ main .auth_main{
     display: flex;
     border:1px solid rgb(34, 86, 134);
     width: 100%;
-    height: 100%;
     justify-content: space-between;
 }
     .left-block {

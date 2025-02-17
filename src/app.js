@@ -102,3 +102,30 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Обработка запроса на поиск друга по login
+document.getElementById("form_search_for_friends").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const login = document.getElementById("exampleInputEmail").value;
+  console.log(login);
+  
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "src/friends.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onload = function(){
+    if (xhr.status === 200) {
+      console.log(xhr.response);
+      
+      // if (response.success) {
+      //     console.log("it`s ok")
+      // } else {
+      //     console.log('Ошибка: ' + response.message);
+      // }
+  } else {
+      console.log('Ошибка при отправке данных');
+  }
+};
+  const data = `login=${encodeURIComponent(login)}`;
+  xhr.send(data);
+});
+
