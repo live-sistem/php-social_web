@@ -124,19 +124,19 @@ document.getElementById("form_search_for_friends").addEventListener("submit", fu
 
       // Для каждого пользователя создаем блоsdк
 
-      // data.forEach(user => {
-      //     // Создаем блок с информацией о пользователе
-      //     const userBlock_login = document.createElement('div');
-      //     userBlock_login.classList.add('search-item-login');
-      //     userBlock_login.innerHTML = `<div>Login: ${user.login}</div>`;
-      //     const userBlock_user = document.createElement('div');
-      //     userBlock_user.classList.add('search-item-name');
-      //     userBlock_user.innerHTML = `<p>Name: ${user.name}</p>
-      //                                 <p>Surname: ${user.surname}</p>`;
-      //     // Добавляем созданный блок в контейнер
-      //     container.appendChild(userBlock_login);
-      //     container.appendChild(userBlock_user);
-      // });
+      data.forEach(user => {
+          // Создаем блок с информацией о пользователе
+          const userBlock_login = document.createElement('div');
+          userBlock_login.classList.add('search-item-login');
+          userBlock_login.innerHTML = `<div>Login: ${user.login}</div>`;
+          const userBlock_user = document.createElement('div');
+          userBlock_user.classList.add('search-item-name');
+          userBlock_user.innerHTML = `<p>Name: ${user.name}</p>
+                                      <p>Surname: ${user.surname}</p>`;
+          // Добавляем созданный блок в контейнер
+          container.appendChild(userBlock_login);
+          container.appendChild(userBlock_user);
+      });
     }
     else {
       console.log('Ошибка при отправке данных');
