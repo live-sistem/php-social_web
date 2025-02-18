@@ -236,15 +236,20 @@ if(array_key_exists('editProfile',$_POST)){
                                             <div class="search-container">
                                                 <h4>Поиск человека</h4>
                                                 <form id="form_search_for_friends">
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 d-flex justify-content-between" >
                                                         <input require type="login" name="login" class="form-control" id="exampleInputEmail" placeholder="Введите ник">
                                                         <button class="btn btn-primary" type="submit">Поиск</button>
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="search-results" id="result-search-item">
-                                                <div class="search-item">
-
+                                                <div class="search-friends" id="form_search_login_name_surname">
+                                                    <div class="search-item-login" id='form-search-friends-login'>
+                                                        
+                                                    </div>
+                                                    <div class="search-item-name"  id='form-search-friend-name'>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

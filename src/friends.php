@@ -8,35 +8,31 @@ if (isset($_POST['login'])) {
     $connect = getDB(); 
     $loginSearch = $_POST['login'];
     // $result = mysqli_prepare($connect, "SELECT * FROM users WHERE login LIKE ? LIMIT 10");
-    $result = mysqli_prepare($connect, "SELECT `login`, `name`, `surname` FROM `users` WHERE login LIKE ? LIMIT 10");
+    $result = mysqli_prepare($connect, "SELECT `id`, `login`, `name`, `surname` FROM `users` WHERE login LIKE ? LIMIT 10");
 
     if ($result === false) {
         die('Ошибка подготовки запроса: ' . mysqli_error($connect));
     }
-
     // Привязываем параметр поиска (строка типа 's' - string)
     $searchTerm = '%' . $loginSearch . '%';
     mysqli_stmt_bind_param($result, 's', $searchTerm);
-
     // Выполняем запрос
     mysqli_stmt_execute($result);
-
     // Получаем результат
     $strm = mysqli_stmt_get_result($result);
-
     // Обработка результата
     $users = [];
     while ($row = mysqli_fetch_assoc($strm)) {
-        // Добавляем только имя и фамилию
+        // Добавляем в массив данные 
         $users[] = [
+            'id' => $row['id'],
             'login' => $row['login'],
             'name' => $row['name'],
             'surname' => $row['surname']
         ];
     }
-
     // Если есть результаты, выводим их в формате JSON
-    if (!empty($users)) {
+    if (!empty($users)){
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($users, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     } else {

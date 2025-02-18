@@ -98,14 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
         loadMessages();
           container.scrollTop = container.scrollHeight;
       }, 500);
-      
+
   });
 });
 
 // Обработка запроса на поиск друга по login
-document.getElementById("form_search_for_friends").addEventListener("submit", function(event) {
+document.getElementById("form_search_for_friends").addEventListener("submit", function(event){
   event.preventDefault();
   const login = document.getElementById("exampleInputEmail").value;
+  const container = document.getElementById('form-search-friend-name');
+  container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
   console.log(login);
   
   const xhr = new XMLHttpRequest();
@@ -114,18 +116,35 @@ document.getElementById("form_search_for_friends").addEventListener("submit", fu
 
   xhr.onload = function(){
     if (xhr.status === 200) {
-      console.log(xhr.response);
-      
-      // if (response.success) {
-      //     console.log("it`s ok")
-      // } else {
-      //     console.log('Ошибка: ' + response.message);
-      // }
-  } else {
+      var response = xhr.response;
+      console.log(typeof(response));
+      var data = JSON.parse(response);
+      console.log(data);
+      console.log(typeof(data));
+
+      // Для каждого пользователя создаем блоsdк
+
+      // data.forEach(user => {
+      //     // Создаем блок с информацией о пользователе
+      //     const userBlock_login = document.createElement('div');
+      //     userBlock_login.classList.add('search-item-login');
+      //     userBlock_login.innerHTML = `<div>Login: ${user.login}</div>`;
+      //     const userBlock_user = document.createElement('div');
+      //     userBlock_user.classList.add('search-item-name');
+      //     userBlock_user.innerHTML = `<p>Name: ${user.name}</p>
+      //                                 <p>Surname: ${user.surname}</p>`;
+      //     // Добавляем созданный блок в контейнер
+      //     container.appendChild(userBlock_login);
+      //     container.appendChild(userBlock_user);
+      // });
+    }
+    else {
       console.log('Ошибка при отправке данных');
-  }
-};
+    };
+  };
   const data = `login=${encodeURIComponent(login)}`;
   xhr.send(data);
-});
+  });
+
+
 
