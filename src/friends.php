@@ -7,8 +7,8 @@ require_once __DIR__ . '/helpers.php';
 if (isset($_POST['login'])) {
     $connect = getDB(); 
     $loginSearch = $_POST['login'];
-    // $result = mysqli_prepare($connect, "SELECT * FROM users WHERE login LIKE ? LIMIT 10");
-    $result = mysqli_prepare($connect, "SELECT `id`, `login`, `name`, `surname` FROM `users` WHERE login LIKE ? LIMIT 10");
+    // $result = mysqli_prepare($connect, "SELECT * FROM users WHERE login LIKE ? LIMIT 6");
+    $result = mysqli_prepare($connect, "SELECT `id`, `login`, `name`, `surname` FROM `users` WHERE login LIKE ? LIMIT 6");
 
     if ($result === false) {
         die('Ошибка подготовки запроса: ' . mysqli_error($connect));

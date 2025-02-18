@@ -204,8 +204,7 @@ if(array_key_exists('editProfile',$_POST)){
                             <div class="card" style="height: 652px;">
                                 <h5 class="card-header">Заявки</h5>
                                 <div class="zayvki">
-
-                                    <div class="container-applications mt-1">
+                                    <div class="container-applications">
                                         <!-- Левый блок (Отправленные заявки) -->
                                         <div class="left-block">
                                             <h4>Отправленные заявки</h4>
@@ -216,25 +215,11 @@ if(array_key_exists('editProfile',$_POST)){
                                                     <small>Отправлено: 10 февраля</small>
                                                 </div>
                                             </div>
-                                            <div class="request-item">
-                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                <div class="request-item-friend">
-                                                    <strong>Анна Петрова</strong>
-                                                    <small>Отправлено: 8 февраля</small>
-                                                </div>
-                                            </div>
-                                            <div class="request-item">
-                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                <div class="request-item-friend">
-                                                    <strong>Алексей Смирнов</strong>
-                                                    <small>Отправлено: 5 февраля</small>
-                                                </div>
-                                            </div>
                                         </div>
                                         <!-- Правый блок (Поиск и список найденных людей) -->
                                         <div class="right-block">
                                             <div class="search-container">
-                                                <h4>Поиск человека</h4>
+                                                <h4>Поиск</h4>
                                                 <form id="form_search_for_friends">
                                                     <div class="mb-3 d-flex justify-content-between" >
                                                         <input require type="login" name="login" class="form-control" id="exampleInputEmail" placeholder="Введите ник">
@@ -243,14 +228,7 @@ if(array_key_exists('editProfile',$_POST)){
                                                 </form>
                                             </div>
                                             <div class="search-results" id="result-search-item">
-                                                <div class="search-friends" id="form_search_login_name_surname">
-                                                    <div class="search-item-login" id='form-search-friends-login'>
-                                                        
-                                                    </div>
-                                                    <div class="search-item-name"  id='form-search-friend-name'>
-                                                        
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>

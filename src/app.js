@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("form_search_for_friends").addEventListener("submit", function(event){
   event.preventDefault();
   const login = document.getElementById("exampleInputEmail").value;
-  const container = document.getElementById('form-search-friend-name');
+
+  const container = document.getElementById('result-search-item');
   container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
   console.log(login);
   
@@ -127,15 +128,16 @@ document.getElementById("form_search_for_friends").addEventListener("submit", fu
       data.forEach(user => {
           // Создаем блок с информацией о пользователе
           const userBlock_login = document.createElement('div');
-          userBlock_login.classList.add('search-item-login');
-          userBlock_login.innerHTML = `<div>Login: ${user.login}</div>`;
-          const userBlock_user = document.createElement('div');
-          userBlock_user.classList.add('search-item-name');
-          userBlock_user.innerHTML = `<p>Name: ${user.name}</p>
-                                      <p>Surname: ${user.surname}</p>`;
+          userBlock_login.classList.add('search-friends');
+          userBlock_login.innerHTML = `<div class="search-item-login">
+                                            ${user.login}
+                                      </div>
+                                      <div class="search-item-name">     
+                                          <div>${user.name}</div>
+                                          <div>${user.surname}</div>
+                                      </div>`
           // Добавляем созданный блок в контейнер
           container.appendChild(userBlock_login);
-          container.appendChild(userBlock_user);
       });
     }
     else {
