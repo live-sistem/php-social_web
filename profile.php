@@ -228,7 +228,7 @@ if(array_key_exists('editProfile',$_POST)){
                                                 </form>
                                             </div>
                                             <div class="search-results" id="result-search-item">
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -342,10 +342,11 @@ if(array_key_exists('editProfile',$_POST)){
     <footer>
         <div class="card" data-bs-theme="dark">
             <h5 class="card-header">Footer</h5>
-            <div class="container ">
+            <div class="container">
             <div class="card-body">
                 <h5 class="card-title">Техническая поддержка</h5>
                 <p class="card-text">Свяжитесь с разработчиком, если у вас появились проблемы</p>
+                
                 <div class="mb-3">
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="login">
                     </div>

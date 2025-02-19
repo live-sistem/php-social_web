@@ -76,6 +76,7 @@ function updateFileName() {
       fileName.textContent = "";
   }
 }
+
 // Обработка запроса на отправку нового сообщения
 document.addEventListener('DOMContentLoaded', function() {
   var container = document.getElementById('chatBox');
@@ -106,47 +107,100 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById("form_search_for_friends").addEventListener("submit", function(event){
   event.preventDefault();
   const login = document.getElementById("exampleInputEmail").value;
-
-  const container = document.getElementById('result-search-item');
-  container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-  console.log(login);
+  
+  const container_search_users = document.getElementById('result-search-item');
+  container_search_users.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
   
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "src/friends.php", true);
+  xhr.open("POST", "src/friends-test.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
   xhr.onload = function(){
     if (xhr.status === 200) {
       var response = xhr.response;
-      console.log(typeof(response));
-      var data = JSON.parse(response);
-      console.log(data);
-      console.log(typeof(data));
-
-      // Для каждого пользователя создаем блоsdк
-
-      data.forEach(user => {
-          // Создаем блок с информацией о пользователе
-          const userBlock_login = document.createElement('div');
-          userBlock_login.classList.add('search-friends');
-          userBlock_login.innerHTML = `<div class="search-item-login">
-                                            ${user.login}
-                                      </div>
-                                      <div class="search-item-name">     
-                                          <div>${user.name}</div>
-                                          <div>${user.surname}</div>
-                                      </div>`
-          // Добавляем созданный блок в контейнер
-          container.appendChild(userBlock_login);
-      });
+      container_search_users.innerHTML = response;
     }
     else {
       console.log('Ошибка при отправке данных');
     };
+
   };
   const data = `login=${encodeURIComponent(login)}`;
   xhr.send(data);
+
+  
   });
 
+
+// Запускаем проверку
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const button123 = document.getElementById('myButton123');
+//   button123.addEventListener('click', function() {
+//       alert('Кнопка была нажата!');
+//   });
+// });
+// function initBlockLogic() {
+//   const block = document.getElementById('search-friends-id');
+//   if (block) {
+//       console.log('Блок найден, можно выполнять логику');
+//       // Ваша бизнес-логика здесь
+//   } else {
+//       console.error('Блок не найден!');
+//       // Можно повторить попытку через некоторое время
+//       setTimeout(initBlockLogic, 100); // Проверяем снова через 100 мс
+//   }
+// }
+
+// document.getElementById("search-friends-id").addEventListener("submit", function(event){
+//   event.preventDefault();
+
+//   const login = document.getElementById("search-item-login-id").textContent;
+//   const nameUser = document.getElementById("search-item-name-id").textContent;
+//   console.log(login, nameUser);
+//   // container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
+//   // console.log(login);
+//   // const xhr = new XMLHttpRequest();
+//   // xhr.open("POST", "src/friends.php", true);
+//   // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+//   // xhr.onload = function(){
+//   //   if (xhr.status === 200) {
+//   //     var response = xhr.response;
+//   //     console.log(response);
+//   //   }
+//   //   else {
+//   //     console.log('Ошибка при отправке данных');
+//   //   };
+//   // };
+//   // const data = `login=${encodeURIComponent(login)}`;
+//   // xhr.send(data);
+//   });
+
+// document.getElementById("search-friends-id").addEventListener("submit", function(event){
+//   event.preventDefault();
+
+//   const login = document.getElementsByClassName("search-item-login").value;
+//   const nameUser = document.getElementsByClassName('search-item-name').value;
+//   console.log(login, nameUser)
+//   container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
+//   console.log(login);
+  
+//   // const xhr = new XMLHttpRequest();
+//   // xhr.open("POST", "src/friends.php", true);
+//   // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+//   // xhr.onload = function(){
+//   //   if (xhr.status === 200) {
+//   //     var response = xhr.response;
+//   //     console.log(response);
+//   //   }
+//   //   else {
+//   //     console.log('Ошибка при отправке данных');
+//   //   };
+//   // };
+//   // const data = `login=${encodeURIComponent(login)}`;
+//   // xhr.send(data);
+//   });
 
 
