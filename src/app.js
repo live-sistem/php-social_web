@@ -119,63 +119,73 @@ document.getElementById("form_search_for_friends").addEventListener("submit", fu
     if (xhr.status === 200) {
       var response = xhr.response;
       container_search_users.innerHTML = response;
+      initBlockLogic();
     }
     else {
       console.log('Ошибка при отправке данных');
     };
-
+    
   };
+
   const data = `login=${encodeURIComponent(login)}`;
   xhr.send(data);
 
   
   });
 
-
 // Запускаем проверку
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const button123 = document.getElementById('myButton123');
-//   button123.addEventListener('click', function() {
-//       alert('Кнопка была нажата!');
-//   });
-// });
-// function initBlockLogic() {
-//   const block = document.getElementById('search-friends-id');
-//   if (block) {
-//       console.log('Блок найден, можно выполнять логику');
-//       // Ваша бизнес-логика здесь
-//   } else {
-//       console.error('Блок не найден!');
-//       // Можно повторить попытку через некоторое время
-//       setTimeout(initBlockLogic, 100); // Проверяем снова через 100 мс
-//   }
-// }
+function initBlockLogic() {
+  console.log('Блок найден, можно выполнять логику');
+  const userItemss = document.querySelectorAll('.search-class-friends');
+  
+  userItemss.forEach(userItemss => {
+    userItemss.addEventListener('click', function(event) {
+      event.preventDefault();
+      // .replace(/\s+/g, ' ').trim();
+      //Использование replace() для удаления всех лишних пробелов и переносов
+      //Если вам нужно убрать все лишние пробелы и переносы строк внутри текста, можно использовать replace() с регулярным выражением.
+      const login = userItemss.querySelector('.search-item-login').textContent.replace(/\s+/g, ' ').trim();
+      const nameUser = userItemss.querySelector('.search-item-name').textContent.replace(/\s+/g, ' ').trim();
+      const User_id = userItemss.querySelector('.search-item-id').textContent.replace(/\s+/g, ' ').trim();
+      const user_search = {
+        login: login,
+        nameUser: nameUser,
+        User_id:Number(User_id),
+      };
+      console.log(user_search);
+      const jsonString = JSON.stringify(user_search);
+      console.log(jsonString);
+      
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "src/add_friend.php", true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+
+      xhr.onload = function(){
+        if (xhr.status === 200) {
+          var response = xhr.response;
+          console.log(response);
+        }
+        else {
+          console.log('Ошибка при отправке данных');
+        };
+      };
+
+      xhr.send(jsonString);
+    });
+  });
+}
 
 // document.getElementById("search-friends-id").addEventListener("submit", function(event){
 //   event.preventDefault();
 
 //   const login = document.getElementById("search-item-login-id").textContent;
 //   const nameUser = document.getElementById("search-item-name-id").textContent;
-//   console.log(login, nameUser);
-//   // container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-//   // console.log(login);
-//   // const xhr = new XMLHttpRequest();
-//   // xhr.open("POST", "src/friends.php", true);
-//   // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-//   // xhr.onload = function(){
-//   //   if (xhr.status === 200) {
-//   //     var response = xhr.response;
-//   //     console.log(response);
-//   //   }
-//   //   else {
-//   //     console.log('Ошибка при отправке данных');
-//   //   };
-//   // };
-//   // const data = `login=${encodeURIComponent(login)}`;
-//   // xhr.send(data);
-//   });
+//   console.log(login, nameUser);
+  // container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
+  // console.log(login);
+ 
 
 // document.getElementById("search-friends-id").addEventListener("submit", function(event){
 //   event.preventDefault();

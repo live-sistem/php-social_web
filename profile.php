@@ -23,10 +23,9 @@ foreach ($result_user as $item){
     $unique_id = $item[5];
 }
 
-// Вызывается функция получение всех users в вкладке сообщения. 
+// Вызывается функция получение всех users на странице сообщения. 
 function get_list_message_user(){
     $idUser = $_SESSION['user']['id'];
-    $sql_friend_test = "SELECT * FROM `friends` WHERE NOT `id` = ('$idUser')";
     $sql_friend = " SELECT u.id, u.login, u.name, u.surname
                     FROM users u
                     JOIN friends f ON (u.id = f.friend_id AND f.user_id = '$idUser')
