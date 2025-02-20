@@ -40,7 +40,7 @@ if (isset($data['login']) && isset($data['nameUser'])) {
             }
         }
         else{
-            $status_friend= 'accepted';
+            $status_friend= 'pending';
             $result_messages = mysqli_query($connect, 
             "INSERT INTO `friends` (user_id, friend_id, status) VALUES ('$userId', '$friendId', '$status_friend')");
             echo 'запрос отправлен';

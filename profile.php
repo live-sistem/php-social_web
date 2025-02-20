@@ -3,6 +3,7 @@ session_start();
 require_once __DIR__ . '/src/helpers.php';
 require __DIR__ . '/src/delete_acc.php';
 
+
 $connect = getDB();
 
 $idUser = $_SESSION['user']['id'];
@@ -133,7 +134,7 @@ if(array_key_exists('editProfile',$_POST)){
                     </div>
                     <div class="offcanvas-body">
                         <div>
-                        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
                         </div>
                         <div class="dropdown mt-3">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -205,13 +206,39 @@ if(array_key_exists('editProfile',$_POST)){
                                 <div class="zayvki">
                                     <div class="container-applications">
                                         <!-- Левый блок (Отправленные заявки) -->
-                                        <div class="left-block">
+                                        
+                                        <div class="left-block" >
                                             <h4>Отправленные заявки</h4>
-                                            <div class="request-item">
-                                                <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                <div class="request-item-friend">
-                                                    <strong>Иван Иванов</strong>
-                                                    <small>Отправлено: 10 февраля</small>
+                                            <div class="left-block-applications"> 
+                                                <div class="request-item">
+                                                    <div class="d-flex">
+                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                        <div class="request-item-friend">
+                                                            <strong>Иван Иванов</strong>
+                                                            <small>Отправлено: 10 февраля</small>
+                                                        </div>
+                                                    </div>
+                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
+                                                </div>
+                                                <div class="request-item">
+                                                    <div class="d-flex">
+                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                        <div class="request-item-friend">
+                                                            <strong>Иван Иванов</strong>
+                                                            <small>Отправлено: 10 февраля</small>
+                                                        </div>
+                                                    </div>
+                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
+                                                </div>
+                                                <div class="request-item">
+                                                    <div class="d-flex">
+                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
+                                                        <div class="request-item-friend">
+                                                            <strong>Иван Иванов</strong>
+                                                            <small>Отправлено: 10 февраля</small>
+                                                        </div>
+                                                    </div>
+                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
                                                 </div>
                                             </div>
                                         </div>

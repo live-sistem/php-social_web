@@ -155,32 +155,49 @@ main .auth_main{
 }
 .container-applications{
     display: flex;
-    border:1px solid rgb(34, 86, 134);
     width: 100%;
     height: 100%;
     justify-content: space-between;
 }
     .left-block {
-        border-radius: 10px;
-        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         width: 50%;
-        height: 95%;
+        height: 292px;  
     }
+        .left-block-applications{
+            width: 90%;
+            margin: 5px;
+            height: 292px;  
+            padding: 20px;
+            overflow-y: scroll; 
+            border-radius:5px;
+            border:1px solid rgb(100, 100, 100);
+        }
         .request-item{
             display: flex;
             padding: 10px;
+            align-items:center;
+            justify-content: space-between;
             border-bottom: 1px solid #ddd;
         }
-        .request-item img{
+        .request-item-photo{
             width: 50px;
             height: 50px;
-            border-radius: 50%;
             object-fit: cover;
+            border-radius: 50%;
         }
         .request-item-friend{
             display: flex;
-            flex-direction: column;
             margin-left:10px;
+            flex-direction: column;
+        }
+        .request_cancel_img{
+            width: 25px;
+            height: 25px;
+            object-fit: cover;
+            cursor: pointer;
         }
         .request-item:hover {
             background-color: #f1f1f1;
