@@ -164,13 +164,22 @@ main .auth_main{
         align-items: center;
         flex-direction: column;
         width: 50%;
-        height: 292px;  
+        height: 100%;  
     }
         .left-block-applications{
             width: 90%;
             margin: 5px;
-            height: 292px;  
             padding: 20px;
+            height: 200px;  
+            overflow-y: scroll; 
+            border-radius:5px;
+            border:1px solid rgb(100, 100, 100);
+        }
+        .left-block-receive-applications{
+            width: 90%;
+            margin: 5px;
+            padding: 20px;
+            height: 200px;  
             overflow-y: scroll; 
             border-radius:5px;
             border:1px solid rgb(100, 100, 100);

@@ -2,6 +2,7 @@
 session_start();
 require_once __DIR__ . '/src/helpers.php';
 require __DIR__ . '/src/delete_acc.php';
+require __DIR__ . '/src/sent_applications.php';
 
 
 $connect = getDB();
@@ -206,40 +207,18 @@ if(array_key_exists('editProfile',$_POST)){
                                 <div class="zayvki">
                                     <div class="container-applications">
                                         <!-- Левый блок (Отправленные заявки) -->
-                                        
                                         <div class="left-block" >
-                                            <h4>Отправленные заявки</h4>
+                                            <div>
+                                                <h4>Отправленные заявки</h4>
+                                            </div>
                                             <div class="left-block-applications"> 
-                                                <div class="request-item">
-                                                    <div class="d-flex">
-                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                        <div class="request-item-friend">
-                                                            <strong>Иван Иванов</strong>
-                                                            <small>Отправлено: 10 февраля</small>
-                                                        </div>
-                                                    </div>
-                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
-                                                </div>
-                                                <div class="request-item">
-                                                    <div class="d-flex">
-                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                        <div class="request-item-friend">
-                                                            <strong>Иван Иванов</strong>
-                                                            <small>Отправлено: 10 февраля</small>
-                                                        </div>
-                                                    </div>
-                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
-                                                </div>
-                                                <div class="request-item">
-                                                    <div class="d-flex">
-                                                        <img class="request-item-photo" src="assets/img/zamer.png" alt="">
-                                                        <div class="request-item-friend">
-                                                            <strong>Иван Иванов</strong>
-                                                            <small>Отправлено: 10 февраля</small>
-                                                        </div>
-                                                    </div>
-                                                    <img class="request_cancel_img" src="assets/img/cancel-request.png" alt="">
-                                                </div>
+                                                <?php submitted_applications();?>
+                                            </div>
+                                            <div>
+                                                <h4>Присланные заявки</h4>
+                                            </div>
+                                            <div class="left-block-receive-applications">
+                                                <?php receive_applications();?>
                                             </div>
                                         </div>
                                         <!-- Правый блок (Поиск и список найденных людей) -->
@@ -254,7 +233,6 @@ if(array_key_exists('editProfile',$_POST)){
                                                 </form>
                                             </div>
                                             <div class="search-results" id="result-search-item">
-
                                             </div>
                                         </div>
                                     </div>
