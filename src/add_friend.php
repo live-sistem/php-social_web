@@ -29,9 +29,12 @@ if (isset($data['login']) && isset($data['nameUser'])) {
 
     $friendLogin = $data['login']; // Логин пользователя, которого добавляем в друзья
 
-    $sql = "SELECT * FROM `friends` WHERE (`user_id` = $userId AND `friend_id` = $friendId) OR (`user_id` = $friendId AND `friend_id` = $userId)";
+    $sql = "SELECT * FROM `friends` 
+            WHERE (`user_id` = $userId AND `friend_id` = $friendId) 
+             OR (`user_id` = $friendId AND `friend_id` = $userId)";
 
     $result_messages = mysqli_query($connect, $sql);
+
     if ($result_messages) {
         if ($result_messages -> num_rows > 0){
             echo 'запрос был уже выполнен'; 
@@ -40,9 +43,9 @@ if (isset($data['login']) && isset($data['nameUser'])) {
             }
         }
         else{
-            $status_friend= 'pending';
+            $status_friend = 'pending';
             $result_messages = mysqli_query($connect, 
-            "INSERT INTO `friends` (user_id, friend_id, status) VALUES ('$userId', '$friendId', '$status_friend')");
+            "INSERT INTO `friends` (user_id, friend_id, status) VALUES ('$userId', '$friendId', $status_friend)");
             echo 'запрос отправлен';
 
         }

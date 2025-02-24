@@ -3,19 +3,20 @@
 session_start();
 
 require_once __DIR__ . '/helpers.php';
+$idUser = $_SESSION['user']['id'];
 
 if (isset($_POST['login'])) {
     $connect = getDB(); 
     $loginSearch = $_POST['login'];
     // $result = mysqli_prepare($connect, "SELECT * FROM users WHERE login LIKE ? LIMIT 6");
-    $result = mysqli_prepare($connect, "SELECT `id`, `login`, `name`, `surname` FROM `users` WHERE login LIKE ? LIMIT 6");
+    $result = mysqli_prepare($connect, "SELECT `id`, `login`, `name`, `surname` FROM `users` WHERE login LIKE ? AND id != ? LIMIT 6");
 
     if ($result === false) {
         die('Ошибка подготовки запроса: ' . mysqli_error($connect));
     }
     // Привязываем параметр поиска (строка типа 's' - string)
     $searchTerm = '%' . $loginSearch . '%';
-    mysqli_stmt_bind_param($result, 's', $searchTerm);
+    mysqli_stmt_bind_param($result, 'si', $searchTerm, $idUser);
     // Выполняем запрос
     mysqli_stmt_execute($result);
     // Получаем результат

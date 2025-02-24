@@ -176,41 +176,39 @@ function initBlockLogic() {
   });
 }
 
-// document.getElementById("search-friends-id").addEventListener("submit", function(event){
-//   event.preventDefault();
+document.getElementById("check_yes_application_box").addEventListener("click", function(event){
+  event.preventDefault();
+  const user_id_friend = document.getElementById("iduser");
 
-//   const login = document.getElementById("search-item-login-id").textContent;
-//   const nameUser = document.getElementById("search-item-name-id").textContent;
+  const ID_User = user_id_friend.dataset.userId;
+  console.log('yes', Number(ID_User));
 
-//   console.log(login, nameUser);
-  // container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-  // console.log(login);
- 
+  const loginFriend = document.getElementById("request-for-you-item-login").textContent;
+  const NameFriend = document.getElementById("request-for-you-item-name").textContent;
 
-// document.getElementById("search-friends-id").addEventListener("submit", function(event){
-//   event.preventDefault();
+  const user_friend_response = {
+    user_id_friend:Number(ID_User),
+    user_login_friend:loginFriend,
+    user_name_friend:NameFriend
+  };
 
-//   const login = document.getElementsByClassName("search-item-login").value;
-//   const nameUser = document.getElementsByClassName('search-item-name').value;
-//   console.log(login, nameUser)
-//   container.innerHTML = ''; // Очищаем контейнер перед добавлением новых данных
-//   console.log(login);
-  
-//   // const xhr = new XMLHttpRequest();
-//   // xhr.open("POST", "src/friends.php", true);
-//   // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  const jsonString = JSON.stringify(user_friend_response);
+  console.log(jsonString);
+    
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "src/confirmation_friend.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-//   // xhr.onload = function(){
-//   //   if (xhr.status === 200) {
-//   //     var response = xhr.response;
-//   //     console.log(response);
-//   //   }
-//   //   else {
-//   //     console.log('Ошибка при отправке данных');
-//   //   };
-//   // };
-//   // const data = `login=${encodeURIComponent(login)}`;
-//   // xhr.send(data);
-//   });
+  xhr.onload = function(){
+    if (xhr.status === 200) {
+      var response = xhr.response;
+      console.log(response);
+    }
+    else {
+      console.log('Ошибка при отправке данных');
+    };
+  };
+  xhr.send(jsonString);  
+  });
 
 
