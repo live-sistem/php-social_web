@@ -4,7 +4,6 @@ require_once __DIR__ . '/src/helpers.php';
 require __DIR__ . '/src/delete_acc.php';
 require __DIR__ . '/src/sent_applications.php';
 
-
 $connect = getDB();
 
 $idUser = $_SESSION['user']['id'];

@@ -2,11 +2,10 @@
 <?php
 session_start();
 require_once __DIR__ . '/helpers.php';
-$connect = getDB(); 
+
 
 function submitted_applications(){
     $idUser = $_SESSION['user']['id'];
-
     // Получить всех, кому текущий пользователь отправил заявки
     $current_user_submitted_applications = "SELECT u.id, u.login, u.name, u.surname, f.created_at
                     FROM users u
@@ -39,7 +38,6 @@ function submitted_applications(){
 
 function receive_applications(){
     $idUser = $_SESSION['user']['id'];
-
     // Получить все, заявки текущего пользователя 
     $sql_friend ="  SELECT u.id, u.login, u.name, u.surname, f.created_at
                     FROM users u

@@ -133,6 +133,7 @@ document.getElementById("form_search_for_friends").addEventListener("submit", fu
   
   });
 
+  
 // Запускаем проверку
 
 function initBlockLogic() {
@@ -148,11 +149,13 @@ function initBlockLogic() {
       const login = userItemss.querySelector('.search-item-login').textContent.replace(/\s+/g, ' ').trim();
       const nameUser = userItemss.querySelector('.search-item-name').textContent.replace(/\s+/g, ' ').trim();
       const User_id = userItemss.querySelector('.search-item-id').textContent.replace(/\s+/g, ' ').trim();
+      
       const user_search = {
+        User_id:Number(User_id),
         login: login,
         nameUser: nameUser,
-        User_id:Number(User_id),
       };
+
       console.log(user_search);
       const jsonString = JSON.stringify(user_search);
       console.log(jsonString);
@@ -164,7 +167,7 @@ function initBlockLogic() {
       xhr.onload = function(){
         if (xhr.status === 200) {
           var response = xhr.response;
-          console.log(response);
+          console.log(response);      
         }
         else {
           console.log('Ошибка при отправке данных');
@@ -175,7 +178,6 @@ function initBlockLogic() {
     });
   });
 }
-
 document.getElementById("check_yes_application_box").addEventListener("click", function(event){
   event.preventDefault();
   const user_id_friend = document.getElementById("iduser");
@@ -210,5 +212,51 @@ document.getElementById("check_yes_application_box").addEventListener("click", f
   };
   xhr.send(jsonString);  
   });
+
+// Пробный код пока не работает, не знаю почему, может быть, совсем банальная. 
+// function BlockAddRequest() {
+//   console.log('Блок найден, можно выполнять логику AAAAAAAAAAAAAA');
+  
+//   const request_item_piple = document.querySelectorAll('.request-item');
+//   const button_yes_application_box = document.getElementById("check_yes_application_box");
+
+//   request_item_piple.forEach(function() {
+//     button_yes_application_box.addEventListener('click', function(event) {
+//       event.preventDefault();
+//       const user_id_friend = document.getElementById("iduser");
+//       const ID_User = user_id_friend.dataset.userId;
+//       console.log('yes', Number(ID_User));
+
+//       const loginFriend = document.getElementById("request-for-you-item-login").textContent;
+//       const NameFriend = document.getElementById("request-for-you-item-name").textContent;
+
+//       const user_friend_response = {
+//         user_id_friend:Number(ID_User),
+//         user_login_friend:loginFriend,
+//         user_name_friend:NameFriend
+//       };
+
+//       const jsonString = JSON.stringify(user_friend_response);
+//       console.log(jsonString);
+        
+//       const xhr = new XMLHttpRequest();
+//       xhr.open("POST", "src/confirmation_friend.php", true);
+//       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+//       xhr.onload = function(){
+//         if (xhr.status === 200) {
+//           var response = xhr.response;
+//           console.log(response);
+//         }
+//         else {
+//           console.log('Ошибка при отправке данных');
+//         };
+//       };
+//       xhr.send(jsonString);  
+//     });
+//   });
+// }
+// BlockAddRequest();
+  
 
 
