@@ -25,19 +25,24 @@ document.querySelectorAll('.user-item').forEach(function(userItem) {
         event.preventDefault();
         var recipientId = this.getAttribute('data-user-id'); // Получаем ID выбранного пользователя
         var selectedUserName = this.getAttribute('data-user-name'); // Получаем имя выбранного пользователя
-        var container = document.getElementById('chatBox'); // Нууу тип все сообщения
+        var container = document.getElementById('chatBox'); // Нууу тип блок для сообщений
 
         document.querySelectorAll('.user-item').forEach(function(item) {
             item.classList.remove('selected');
         });
+
         this.classList.add('selected');
         if (recipientId) {
             document.getElementById('incoming_id').value = recipientId;
+
             SelUserName = document.getElementById('selected-user-name').innerHTML = selectedUserName;
+
             loadMessages(recipientId, container);
+
             setTimeout(() => {
               container.scrollTop = container.scrollHeight;
             }, 500);
+
             document.getElementById('chat-box').style.display = 'block';
             document.getElementById('chatBox').style.display = 'flex';
         }else {
@@ -47,6 +52,7 @@ document.querySelectorAll('.user-item').forEach(function(userItem) {
     });
 });
 
+// вытягиваем сообщения из БД
 function loadMessages(recipientId, container){
   if (recipientId, container !== undefined) {
     // Сохраняем переданные данные
@@ -59,7 +65,8 @@ function loadMessages(recipientId, container){
   xhr.onload = function() {
     if (xhr.status === 200){
         var messages = xhr.response;
-        container_copy.innerHTML = messages;
+        console.log(messages);
+        // container_copy.innerHTML = messages;
     } else {
         console.error('Ошибка при загрузке сообщений');
     }

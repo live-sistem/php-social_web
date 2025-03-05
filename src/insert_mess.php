@@ -9,7 +9,7 @@ if (!$idUser == "") {
     $incoming_id=(int)$_POST['incoming_id'];
     
     $msg= htmlspecialchars($_POST['message']);
-    // // Запись данных в базу данных
+    // // Запись данных в БД
     if (!empty($msg)) {
         $sql = "INSERT INTO `messages`(`incoming_msg_id`, `outgoing_msg_id`, `msg`) 
         VALUES ('$incoming_id','$outgoing_id','$msg')";
